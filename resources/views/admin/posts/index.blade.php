@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+
     <h1>Questa è la mia CRUD</h1>
 
     <table class="table">
@@ -17,10 +19,13 @@
                 <tr>
                     <th scope="row">{{$post->id}}</th>
                     <td>{{$post->title}}</td>
-                    <td>XXX</td>
+                    <td><a class="btn btn-success" href="#">Show</a>
+                        <a class="btn btn-primary" href="#">Edit</a>
+                        <a class="btn btn-danger" href="#">delete</a>
                 </tr>
 
             @endforeach
         </tbody>
       </table>
 @endsection
+</div>

@@ -27,7 +27,7 @@
                     <p>Vai alla pagina pubblica</p>
                 </a>
                 @auth
-                <a class="navbar-brand" href="{{ route('admin.index') }}">
+                <a class="navbar-brand" href="{{ route('admin.posts.index') }}">
                     <p>index</p>
                 </a>
                 @endauth
