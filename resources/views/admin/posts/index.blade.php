@@ -19,13 +19,15 @@
                 <tr>
                     <th scope="row">{{$post->id}}</th>
                     <td>{{$post->title}}</td>
-                    <td><a class="btn btn-success" href="#">Show</a>
+                    <td><a class="btn btn-success" href="{{route('admin.posts.show', $post)}}">Show</a>
                         <a class="btn btn-primary" href="#">Edit</a>
                         <a class="btn btn-danger" href="#">delete</a>
                 </tr>
 
             @endforeach
         </tbody>
-      </table>
-@endsection
+    </table>
+    {{$posts->links()}}
+
 </div>
+@endsection
