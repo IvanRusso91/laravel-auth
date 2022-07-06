@@ -25,7 +25,7 @@
                     <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Post Title" value="{{ old('title')}}">
 
                     @error('title')
-                        <p class="form-control text-danger">
+                        <p class="text-danger">
                             {{$message}}
                         </p>
                     @enderror
@@ -37,7 +37,7 @@
                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" cols="30" rows="10" >{{ old('content')}}</textarea>
 
                     @error('content')
-                        <p class="form-control text-danger">
+                        <p class="text-danger">
                             {{$message}}
                         </p>
                     @enderror
