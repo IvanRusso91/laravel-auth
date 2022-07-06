@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -70,7 +71,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $posts= Post::find($id);
+        if($posts){
+            return view('admin.posts.edit', compact('posts'));
+        }
+        abort(404);
     }
 
     /**
@@ -80,9 +85,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, $id)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $data=$request->all();
+        $data['slug']= Str::slug($data['title'],'-');
+        $post->update($data);
+        return redirect()->route('admin.posts.show',$post);
     }
 
     /**
